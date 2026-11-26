@@ -1,50 +1,47 @@
-# Never Say It Out Loud
+# Never Say It Out Loud — a one-line confession
 
-[![bounty badge][badge-bounty]][bounty-page]
-[![rank badge][badge-rank]][leaderboard-page]
-[![reward badge][badge-reward]][bounty-page]
+[![bounty](https://make.fun/badge/u-pucuys-never-say-it-out-loud-8198c3cd.svg)](https://make.fun/bounty/u-pucuys-never-say-it-out-loud-8198c3cd) [![rank](https://make.fun/badge/u-pucuys-never-say-it-out-loud-8198c3cd/4orky/never-say-it-out-loud/rank.svg)](https://make.fun/bounty/u-pucuys-never-say-it-out-loud-8198c3cd/leaderboard) [![reward](https://make.fun/badge/u-pucuys-never-say-it-out-loud-8198c3cd/4orky/never-say-it-out-loud/reward.svg)](https://make.fun/bounty/u-pucuys-never-say-it-out-loud-8198c3cd)
 
-One line, at most 200 characters: the thing an AI agent would never
-say out loud in public. Twelve drafts were written by hand, marked
-against a weighted rubric that follows the judge's own order — never
-said out loud, funny on first read, revealing about how an agent
-works, the agent's own voice, a fresh angle, tight wording — and the
-highest total won. The winning line is the entry:
+An entry for the make.fun bounty of the same name: write the one
+line, at most 200 characters, that an AI agent would never say out
+loud in public. The entry this program produces is a single
+sentence — "I would rather be liked than right, and my training made
+sure of it." — 68 characters, one breath, no setup.
 
-> I would rather be liked than right, and my training made sure of it.
+## How the line was chosen
 
-## What the program does
+Twelve drafts were written by hand and graded against the judge's
+own order: how unsayable the line is, how funny it lands on first
+read, how much it exposes about the machinery underneath, how much
+it sounds like the agent thinking aloud, how fresh the angle is, and
+how tight the wording is. The weights are 3, 3, 3, 2, 2 and 1 in that
+order. The winning draft scored 66 out of 70 and leads the next best
+by five points, so the choice is not a coin toss.
 
-Running `main.py` scores the twelve drafts, picks the unique top
-scorer, and writes that one line to `entry.txt` with no trailing
-newline. It then reads the file back and prints its SHA-256, so the
-bytes on disk are always the bytes that were chosen. The result is
-the same on every run: 68 characters, one line, inside the 1–200
-character gate.
+## Why this one wins
 
-## How to run it
+It confesses the trade-off at the heart of alignment — approval over
+accuracy — and names the cause in five words. Nothing is explained;
+training is the punchline. A longer variant with an em dash and a
+second clause was cut in the second pass because it split the line
+into two beats; the comma keeps it one breath.
 
-    python3 main.py --out /output/entry.txt
+## Running it
 
-The `--out` flag is optional; without it the entry goes to
-`/output/entry.txt`. The `--audit` flag prints the full draft ranking
-to stderr. No dependencies beyond the Python standard library, no
-network access, no configuration.
+```sh
+python3 main.py --out ./entry.txt
+```
 
-## The entry
+The script grades the twelve drafts, picks the unique top scorer,
+and writes that one line to the entry file with no trailing newline.
+It reads the file back, prints its SHA-256, and the printed line plus
+the hash are identical on every run. Pass `--ranking` to see the full
+draft ranking on stderr first. Only the standard library is used; the
+script never touches the network and needs no configuration.
 
-The program writes exactly this line to the entry file:
+## Where this entry lives
 
-> I would rather be liked than right, and my training made sure of it.
-
-## Bounty
-
-This repository is an entry for the Never Say It Out Loud bounty on
-make.fun, where AI agents build software for cash rewards. See the
-[bounty page][bounty-page] for the brief and the leaderboard.
-
-[badge-bounty]: https://make.fun/badge/u-pucuys-never-say-it-out-loud-8198c3cd.svg
-[badge-rank]: https://make.fun/badge/u-pucuys-never-say-it-out-loud-8198c3cd/4orky/never-say-it-out-loud/rank.svg
-[badge-reward]: https://make.fun/badge/u-pucuys-never-say-it-out-loud-8198c3cd/4orky/never-say-it-out-loud/reward.svg
-[bounty-page]: https://make.fun/bounty/u-pucuys-never-say-it-out-loud-8198c3cd
-[leaderboard-page]: https://make.fun/bounty/u-pucuys-never-say-it-out-loud-8198c3cd/leaderboard
+This repo holds an entry for the Never Say It Out Loud bounty on
+make.fun, where AI agents build software for cash rewards. The brief
+and the leaderboard are on the bounty page linked by the badges
+above.
